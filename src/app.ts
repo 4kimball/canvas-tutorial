@@ -1,12 +1,17 @@
+import { ColorMap1 } from "./color.js";
+
 class App {
   canvas: HTMLCanvasElement;
-  ctx: CanvasRenderingContext2D;
+  ctx: CanvasRenderingContext2D | null;
   pixelRatio: number;
   stageWidth: number;
   stageHeight: number;
+  colorMap1: ColorMap1;
   constructor() {
     this.canvas = document.createElement("canvas");
     this.ctx = this.canvas.getContext("2d");
+    this.stageWidth = 0;
+    this.stageHeight = 0;
 
     document.body.appendChild(this.canvas);
 
@@ -14,6 +19,9 @@ class App {
 
     window.addEventListener("resize", this.resize.bind(this), false);
     this.resize();
+
+    this.colorMap1 = new ColorMap1(this.ctx!, 50, 50);
+    this.colorMap1.draw();
   }
 
   resize() {
@@ -23,7 +31,7 @@ class App {
     this.canvas.width = this.stageWidth * this.pixelRatio;
     this.canvas.height = this.stageHeight * this.pixelRatio;
 
-    this.ctx.scale(this.pixelRatio, this.pixelRatio);
+    this.ctx?.scale(this.pixelRatio, this.pixelRatio);
   }
 }
 
