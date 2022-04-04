@@ -1,4 +1,4 @@
-import { ColorMap1 } from "./color.js";
+import { ColorMap1, ColorMap2 } from "./color.js";
 
 class App {
   canvas: HTMLCanvasElement;
@@ -6,7 +6,8 @@ class App {
   pixelRatio: number;
   stageWidth: number;
   stageHeight: number;
-  colorMap1: ColorMap1;
+  //   colorMap1: ColorMap1;
+  colorMap2: ColorMap2;
   constructor() {
     this.canvas = document.createElement("canvas");
     this.ctx = this.canvas.getContext("2d");
@@ -20,8 +21,11 @@ class App {
     window.addEventListener("resize", this.resize.bind(this), false);
     this.resize();
 
-    this.colorMap1 = new ColorMap1(this.ctx!, 50, 50);
-    this.colorMap1.draw();
+    // this.colorMap1 = new ColorMap1(this.ctx!, 50, 50);
+    // this.colorMap1.draw();
+
+    this.colorMap2 = new ColorMap2(this.ctx!, 20);
+    this.colorMap2.draw();
   }
 
   resize() {

@@ -11,8 +11,10 @@ var App = /** @class */ (function () {
         this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
         window.addEventListener("resize", this.resize.bind(this), false);
         this.resize();
-        this.colorMap1 = new color_js_1.ColorMap1(this.ctx, 50, 50);
-        this.colorMap1.draw();
+        // this.colorMap1 = new ColorMap1(this.ctx!, 50, 50);
+        // this.colorMap1.draw();
+        this.colorMap2 = new color_js_1.ColorMap2(this.ctx, 20);
+        this.colorMap2.draw();
     }
     App.prototype.resize = function () {
         var _a;
